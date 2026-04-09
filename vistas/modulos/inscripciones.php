@@ -26,7 +26,7 @@
           <button class="btn btn-primary btn-block" style="border-radius: 5px; font-weight: 500;">Inscripción a apoyos</button>
         </div>
         <div class="col-md-6 mb-2">
-          <button class="btn btn-primary btn-block" style="border-radius: 5px; font-weight: 500;">Preguntas Frecuentes</button>
+          <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalPreguntas" style="border-radius: 5px; font-weight: 500;">Preguntas Frecuentes</button>
         </div>
       </div>
 
@@ -232,7 +232,7 @@
       <div class="modal fade" id="modalInfoBancaria" tabindex="-1" role="dialog" aria-labelledby="modalInfoBancariaTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
-            <div class="modal-header p-3" style="background-color: #2852ff; color: white; border-bottom: none;">
+            <div class="modal-header p-3" style="background-color: #007bff; color: white; border-bottom: none;">
               <div class="d-flex align-items-center w-100">
                 <i class="fas fa-address-card fa-lg ml-2 mr-3" style="color: white !important;"></i>
                 <h5 class="modal-title font-weight-bold mb-0 text-uppercase mx-auto" id="modalInfoBancariaTitle" style="font-size: 1.1rem; letter-spacing: 0.5px; color: white !important;">
@@ -263,13 +263,13 @@
                     <input type="text" class="form-control bg-transparent" id="nombreBanco" style="border-left: none; box-shadow: none;">
                   </div>
                 </div>
-                <button type="button" class="btn btn-primary shadow-sm" id="btnAbrirSubirArchivo" style="background-color: #2852ff; border-color: #2852ff; border-radius: 20px; padding: 6px 20px;">
+                <button type="button" class="btn btn-primary shadow-sm" id="btnAbrirSubirArchivo" style="background-color: #007bff; border-color: #007bff; border-radius: 20px; padding: 6px 20px;">
                   <i class="fas fa-upload mr-1"></i> Subir archivo
                 </button>
               </div>
             </div>
             <div class="modal-footer border-0 pt-0 pb-4 pr-4">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px; padding: 8px 25px;">Aceptar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color: #007bff; border-color: #007bff; border-radius: 10px; padding: 8px 25px;">Aceptar</button>
             </div>
           </div>
         </div>
@@ -288,9 +288,99 @@
               </div>
               <p class="mb-5" style="font-size: 1.1rem;">Arrastra aqui el archivo o buscar en el dispositivo</p>
               <div class="d-flex justify-content-center flex-wrap" style="gap: 15px;">
-                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px;">Buscar en el dispositivo</button>
-                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px;">Enviar documento</button>
+                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #007bff; border-color: #007bff; border-radius: 10px;">Buscar en el dispositivo</button>
+                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #007bff; border-color: #007bff; border-radius: 10px;">Enviar documento</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Preguntas Frecuentes -->
+      <?php
+      $preguntas = [
+        [
+          "titulo" => "¿Qué es el apoyo de sostenimiento del SENA?",
+          "respuesta" => "Es un beneficio económico otorgado a aprendices activos para apoyar gastos de transporte, materiales y permanencia durante la formación."
+        ],
+        [
+          "titulo" => "¿Quiénes pueden inscribirse al apoyo de sostenimiento?",
+          "respuesta" => "Aprendices matriculados en programas de formación titulada que cumplan con requisitos socioeconómicos definidos por el SENA."
+        ],
+        [
+          "titulo" => "¿Cómo me inscribo para solicitar el apoyo?",
+          "respuesta" => "Primero deberás estar registrado en el aplicativo luego navegar hasta el apartado de inscripciones y seleccionar inscripción a apoyos"
+        ],
+        [
+          "titulo" => "¿Qué documentos necesito para solicitar el apoyo?",
+          "respuesta" => "Documento de identidad del aprendiz y del tutor si es el caso de que el aprendiz sea menor de edad, Documento EPS, recibo de energía de la vivienda (Todo los archivos en PDF)."
+        ],
+        [
+          "titulo" => "¿Cuándo abren las inscripciones para el apoyo?",
+          "respuesta" => "Las fechas varían según centro de formación y convocatoria; el calendario se publica en canales oficiales del SENA."
+        ],
+        [
+          "titulo" => "¿Puedo aplicar al apoyo si estoy en etapa productiva?",
+          "respuesta" => "Sí, siempre que cumplas requisitos y la convocatoria esté habilitada para aprendices en etapa productiva."
+        ],
+        [
+          "titulo" => "¿Puedo perder el apoyo de sostenimiento una vez otorgado?",
+          "respuesta" => "Sí. El beneficio puede suspenderse por bajo rendimiento, faltas disciplinarias, cancelación del programa o abandono."
+        ],
+        [
+          "titulo" => "¿Cómo saber si fui seleccionado para el apoyo?",
+          "respuesta" => "Los resultados se publican a través de notificaciones de el aplicativo o por el grupo de whatsapp de tu ficha compartidos con los voceros."
+        ],
+        [
+          "titulo" => "¿Qué pasa si pierdo la condición de estudiante activo?",
+          "respuesta" => "El apoyo se suspende inmediatamente y no se seguirán generando pagos."
+        ],
+        [
+          "titulo" => "¿Hay límite de cupos para el apoyo?",
+          "respuesta" => "Sí, depende del presupuesto asignado por cada centro de formación y la demanda de aprendices inscritos."
+        ],
+      ];
+      ?>
+
+      <div class="modal fade" id="modalPreguntas" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+          <div class="modal-content" style="border-radius: 10px; overflow: hidden;">
+            <div class="modal-header d-flex justify-content-between align-items-center" style="background-color: #007bff; color: white;">
+              <div>
+                <i class="fas fa-user-graduate" style="font-size: 1.5rem;"></i>
+              </div>
+              <h5 class="modal-title font-weight-bold" style="flex-grow: 1; text-align: center;">PREGUNTAS FRECUENTES</h5>
+              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity: 1; outline: none;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="padding: 20px 40px; max-height: 70vh; overflow-y: auto;">
+              
+              <div class="accordion" id="accordionPreguntas">
+                <?php foreach($preguntas as $index => $pregunta): 
+                  $headingId = "headingFAQ" . $index;
+                  $collapseId = "collapseFAQ" . $index;
+                  $expanded = $index === 0 ? "true" : "false";
+                  $collapseClass = $index === 0 ? "collapse show" : "collapse";
+                ?>
+                <div class="card shadow-none mb-3" style="border: 1px solid rgba(128,128,128,0.3); border-radius: 8px; background-color: transparent;">
+                  <div class="card-header p-0" id="<?php echo $headingId; ?>" style="background-color: transparent; border-bottom: none; border-radius: 8px;">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left d-flex justify-content-between align-items-center text-decoration-none text-reset <?php echo $index === 0 ? '' : 'collapsed'; ?>" type="button" data-toggle="collapse" data-target="#<?php echo $collapseId; ?>" aria-expanded="<?php echo $expanded; ?>" aria-controls="<?php echo $collapseId; ?>" style="box-shadow: none;">
+                        <?php echo $pregunta['titulo']; ?>
+                        <i class="fas fa-chevron-down text-muted" style="font-size: 0.8rem;"></i>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="<?php echo $collapseId; ?>" class="<?php echo $collapseClass; ?>" aria-labelledby="<?php echo $headingId; ?>" data-parent="#accordionPreguntas">
+                    <div class="card-body pt-0 text-muted" style="background-color: transparent;">
+                      <?php echo $pregunta['respuesta']; ?>
+                    </div>
+                  </div>
+                </div>
+                <?php endforeach; ?>
+              </div>
+
             </div>
           </div>
         </div>
