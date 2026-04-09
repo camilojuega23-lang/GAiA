@@ -181,7 +181,7 @@
 
         </div>
         <div class="card-footer position-relative d-flex justify-content-center align-items-center">
-          <button id="btnSubirDocumento" class="btn btn-primary px-4" style="border-radius: 5px;">
+          <button id="btnSubirDocumento" class="btn btn-primary px-4" style="border-radius: 5px;" data-toggle="modal" data-target="#modalInfoBancaria">
             <i class="fas fa-file-upload mr-2"></i> Subir documento de certificación bancaria
           </button>
           <div class="position-absolute" style="right: 20px;">
@@ -213,8 +213,88 @@
               }
             });
           }
+
+          var btnAbrirSubirArchivo = document.getElementById('btnAbrirSubirArchivo');
+          if(btnAbrirSubirArchivo) {
+            btnAbrirSubirArchivo.addEventListener('click', function() {
+              $('#modalInfoBancaria').modal('hide');
+              
+              // Se escucha cuando se oculte esta modal para lanzar la siguiente, o se lanza de inmediato
+              setTimeout(function(){
+                $('#modalSubirArchivo').modal('show');
+              }, 400); // Dar un breve lapso para la animación en bootstrap
+            });
+          }
         });
       </script>
+
+      <!-- Modal Info Bancaria -->
+      <div class="modal fade" id="modalInfoBancaria" tabindex="-1" role="dialog" aria-labelledby="modalInfoBancariaTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header p-3" style="background-color: #2852ff; color: white; border-bottom: none;">
+              <div class="d-flex align-items-center w-100">
+                <i class="fas fa-address-card fa-lg ml-2 mr-3" style="color: white !important;"></i>
+                <h5 class="modal-title font-weight-bold mb-0 text-uppercase mx-auto" id="modalInfoBancariaTitle" style="font-size: 1.1rem; letter-spacing: 0.5px; color: white !important;">
+                  ADICCIONAR INFORMACION BANCARIA
+                </h5>
+                <button type="button" class="close text-white ml-0" style="opacity: 1; text-shadow: none;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white !important;">&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-body p-4">
+              <div style="border: 1px dashed #6c757d; padding: 25px 20px; border-radius: 5px;">
+                <div class="form-group mb-4">
+                  <label for="numeroCuenta" style="font-weight: normal; margin-bottom: 5px;">numero de cuenta</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-transparent" style="border-right: none;"><i class="far fa-dot-circle"></i></span>
+                    </div>
+                    <input type="text" class="form-control bg-transparent" id="numeroCuenta" style="border-left: none; box-shadow: none;">
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="nombreBanco" style="font-weight: normal; margin-bottom: 5px;">nombre del banco</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-transparent" style="border-right: none;"><i class="fas fa-file-invoice"></i></span>
+                    </div>
+                    <input type="text" class="form-control bg-transparent" id="nombreBanco" style="border-left: none; box-shadow: none;">
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary shadow-sm" id="btnAbrirSubirArchivo" style="background-color: #2852ff; border-color: #2852ff; border-radius: 20px; padding: 6px 20px;">
+                  <i class="fas fa-upload mr-1"></i> Subir archivo
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer border-0 pt-0 pb-4 pr-4">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px; padding: 8px 25px;">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Subir Archivo -->
+      <div class="modal fade" id="modalSubirArchivo" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content text-center" style="border-radius: 10px; min-height: 350px;">
+            <button type="button" class="close position-absolute" style="right: 15px; top: 15px; z-index: 10;" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="font-size: 1.5rem;">&times;</span>
+            </button>
+            <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 40px 20px;">
+              <div class="mb-4">
+                <i class="fas fa-upload" style="font-size: 4rem; display: block; margin-bottom: 5px;"></i>
+              </div>
+              <p class="mb-5" style="font-size: 1.1rem;">Arrastra aqui el archivo o buscar en el dispositivo</p>
+              <div class="d-flex justify-content-center flex-wrap" style="gap: 15px;">
+                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px;">Buscar en el dispositivo</button>
+                <button type="button" class="btn btn-primary px-4 py-2" style="background-color: #2852ff; border-color: #2852ff; border-radius: 10px;">Enviar documento</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </section>
     <!-- /.content -->
