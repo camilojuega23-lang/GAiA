@@ -69,6 +69,9 @@
           $_GET["ruta"] == "fichas" ||
           $_GET["ruta"] == "identificacion"|| 
           $_GET["ruta"] == "financiera"||
+          $_GET["ruta"] == "verificacion"||  
+          $_GET["ruta"] == "reportes"||  
+          $_GET["ruta"] == "inscripciones"||
           $_GET["ruta"] == "Usuarios"
         ) 
         {
