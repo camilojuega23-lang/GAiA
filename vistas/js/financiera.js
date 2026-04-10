@@ -1,21 +1,21 @@
 $(document).ready(function () {
     // Configuración base de datatables
-    var tableOptions = {
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "searching": true,
-        "paging": true,
-        "info": false,
-        "dom": 'rt', // Quitamos filtros y paginación por defecto, los manejaremos custom
-        "pageLength": 5
-    };
+    // var tableOptions = {
+    //     "responsive": true,
+    //     "lengthChange": false,
+    //     "autoWidth": false,
+    //     "searching": true,
+    //     "paging": true,
+    //     "info": false,
+    //     "dom": 'rt', // Quitamos filtros y paginación por defecto, los manejaremos custom
+    //     "pageLength": 5
+    // };
 
-    // Inicializar cada tabla
-    var tblSostenimiento = $("#tblSostenimiento").DataTable(tableOptions);
-    var tblDatos = $("#tblDatos").DataTable(tableOptions);
-    var tblAlimentacion = $("#tblAlimentacion").DataTable(tableOptions);
-    var tblTransporte = $("#tblTransporte").DataTable(tableOptions);
+    // // Inicializar cada tabla
+    // var tblSostenimiento = $("#tblSostenimiento").DataTable(tableOptions);
+    // var tblDatos = $("#tblDatos").DataTable(tableOptions);
+    // var tblAlimentacion = $("#tblAlimentacion").DataTable(tableOptions);
+    // var tblTransporte = $("#tblTransporte").DataTable(tableOptions);
 
     var tablesMap = {
         "#tab-sostenimiento": tblSostenimiento,
